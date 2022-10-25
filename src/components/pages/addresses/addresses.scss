@@ -1,0 +1,84 @@
+$color : #4F27BF;
+
+.addresses {
+  display: flex;
+  flex-direction: column;
+  padding-right: 32px;
+}
+
+.addresses__title, .addresses__sub-title {
+  padding: 0;
+  margin: 0;
+}
+
+.addresses__title {
+  margin-bottom: 16px;
+}
+
+.addresses__sub-title {
+  margin-bottom: 24px;
+}
+
+.addresses__input {
+  display: flex;
+  column-gap: 24px;
+}
+
+.input-value {
+  border: 3px solid $color;;
+  border-radius: 10px;
+  padding: 23px 24px;
+  width: 100%;
+}
+
+.input-value:placeholder {
+  font-weight: 500;
+  font-size: 20px;
+  color: #6C6C6C;
+  line-height: 24px;
+}
+
+.input-button {
+  padding: 19px 40px;
+  background: $color;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 1);
+  outline: none;
+  border: none;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 32px;
+}
+
+.addresses__results {
+  margin-top: 32px;
+  width: 100%;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 8px rgba(2, 0, 97, 0.25);
+  border-radius: 10px;
+  height: 400px;
+  padding: 24px;
+  color: rgba(0, 0, 0, 1);
+}
+
+.results__wrapper {
+  list-style: none;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+.results__title {
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 32px;
+
+}
+
+.results__item {
+  border-top: 1px solid #D7D7D7;
+  padding: 16px 0px;
+  margin: 0;
+}

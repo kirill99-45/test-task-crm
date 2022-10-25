@@ -1,0 +1,50 @@
+.home__header {
+  display: flex;
+  row-gap: 16px;
+  flex-direction: column;
+}
+
+.home__title, .home__sub-title {
+  padding: 0;
+  margin: 0;
+}
+
+.home__title {
+  font-weight: 700;
+  font-size: 26px;
+  color: #1C1C1E;
+}
+
+.home__sub-title {
+  font-weight: 500;
+  font-size: 20px;
+  color: #1C1C1E;
+}
+
+.home__paragraphs {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.home__paragraph {
+  font-weight: 500;
+  padding: 0px;
+  padding-right: 32px;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 1);
+  margin: 0px;
+  position: relative;
+  overflow: hidden;
+  &:hover::after {
+    content: '';
+    position: absolute;
+    right: -3px;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    border-radius: 10px;
+    background: rgba(79, 39, 191, 1);
+  }
+}
