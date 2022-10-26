@@ -4,6 +4,7 @@ export const Home: React.FC = () => {
 
   const NewsData = [
     {
+      id : 1,
       paragraphs : [
         {
           text : 'В новой версии 1.2 реализован уникальный функционал: улучшенная обработка смет и баз, учитываются все последние изменения в сметном деле. Реализованы уникальные функции: автоматизация расчета сметной документации в базисном и текущем уровне цен одновременно, изменился пользовательский интерфейс, появилась новая Панель цен для сметных строк, добавление в смету оборудования или материалов из прайса стало более удобным. А расчет сметной документации может быть произведен не только по двум уровням цен одновременно.',
@@ -29,12 +30,6 @@ export const Home: React.FC = () => {
     }
   ]
 
-  const Paragraph = ({ paragraph }) => {
-    if (paragraph.links.length === 0) {
-      return <p className='home__paragraph'>{paragraph.text}</p>
-    }
-  }
-
   return (
     <>
       <header className='home__header'>
@@ -44,7 +39,7 @@ export const Home: React.FC = () => {
       <main className='home__paragraphs'>
         {
           NewsData.map(news => {
-            return news.paragraphs.map(paragraph => <Paragraph paragraph={paragraph}/>)
+            return news.paragraphs.map((paragraph, index) => <p className='home__paragraph' key={index}>{paragraph.text}</p>)
           })
         }
       </main>

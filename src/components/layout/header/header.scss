@@ -14,16 +14,28 @@
   justify-content: space-between;
   align-items: center;
   z-index: 2;
+  @media (max-width: 330px) {
+    padding: 16px;
+  }
 }
 
 .logo {
   display: flex;
   column-gap: 24px;
   align-items: center;
+  @media (max-width: 340px) {
+    column-gap: 10px;
+  }
 }
 
 .user {
   display: flex;
   column-gap: 16px;
   align-items: center;
+}
+
+.user__title {
+  @media (max-width: 390px) {
+    display: none;
+  }
 }

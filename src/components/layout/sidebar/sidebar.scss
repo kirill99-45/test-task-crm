@@ -3,9 +3,23 @@
   top: 80px;
   left: 0px;
   width: 300px;
-  padding: 24px 0px 24px 32px;
+  padding: 20px;
   box-shadow: 0px 0px 5px rgba(2, 0, 96, 0.25);
   background: rgba(255, 255, 255, 0.05);
+  @media (max-width: 768px) {
+    width: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+  }
+  @media (max-width: 560px) {
+    display: none;
+  }
+  h3 {
+    padding: 0;
+  }
 }
 
 .nav {
@@ -44,6 +58,8 @@
   overflow: hidden;
   position: relative;
   transition: 0.2s;
+  width: 280px;
+  white-space: normal;
   &:hover::after, &.active::after {
     content: '';
     position: absolute;
@@ -55,12 +71,28 @@
     background: rgba(79, 39, 191, 1);
     transition: 0.2s;
   }
+  @media (max-width: 768px) {
+    width: 90px;
+    justify-content: center;
+    &:hover::after, &.active::after {
+      right: -3px;
+      width: 6px;
+      border-radius: 5px;
+      top: 0;
+      bottom: 0;
+      background: rgba(79, 39, 191, 1);
+      transition: 0.2s;
+    }
+  }
 }
 
 .nav__item {
   padding: 4px 0px;
   display: flex;
   align-items: center;
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .nav__arrow {
@@ -68,6 +100,9 @@
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .nav__arrow-down {
@@ -79,6 +114,15 @@
   display: flex;
   flex-direction: column;
   row-gap: 32px;
+  overflow: hidden;
+  & .nav__item {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 180px;
+  }
+  @media (max-width: 768px) {
+    padding-left: 0;
+  }
 }
 
 .nav__settings {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const URL = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
-const TOKEN = "38535e107cde1c35818284c85381c054132a76ec";
+const TOKEN = process.env.REACT_APP_API_KEY
 
 const config = {
   method : "POST",
