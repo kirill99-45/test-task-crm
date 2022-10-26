@@ -1,48 +1,19 @@
-import './addresses.scss';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { getAddress } from './api.tsx';
+
+import './addresses.scss';
 
 export const Addresses: React.FC = () => {
 
-  const URL = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
-  const TOKEN = "38535e107cde1c35818284c85381c054132a76ec";
-  const query = "новосибирск пирогова";
+  const [state, setState] = useState([])
+  const [inputState, setInputState] = useState('')
 
-  const [state, setState] = useState({
-    loading : false,
-    data : [],
-  })
-
-  const options = {
-      method: "POST",
-      mode: "cors",
-      headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-          "Authorization": "Token " + TOKEN
-      },
-      body: JSON.stringify({query: query})
+  const searchHandler = async () => {
+    if (inputState.trim().length > 2) {
+      const adresses = await getAddress(inputState)
+      setState(adresses)
+    }
   }
-
-  fetch(URL, options)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log("error", error));
-
-  // useEffect(() => {
-  //   try {
-  //     setState({...state, loading : true})
-  //     axios.get(URL)
-  //     .then(response => {
-  //       console.log(response);
-  //
-  //       // setState({loading : false, data : response.data})1
-  //     })
-  //   } catch (error) {
-  //     console.log(error);
-  //
-  //   }
-  // })
 
   return (
     <div className='addresses'>
@@ -52,14 +23,20 @@ export const Addresses: React.FC = () => {
       </header>
       <main>
       <form className='addresses__input input'>
-        <input className='input-value' type='text' placeholder='Введите интересующий вас адрес' id='input' />
-        <button className='input-button button' type='button' htmlFor='input'>Поиск</button>
+        <input
+          id='input'
+          type='text'
+          className='input-value'
+          placeholder='Введите интересующий вас адрес'
+          value={inputState}
+          onChange={(event) => setInputState(event.target.value)}
+        />
+        <button className='input-button button' type='button' htmlFor='input' onClick={searchHandler}>Поиск</button>
       </form>
       <div className='addresses__results'>
         <h3 className='results__title'>Адреса</h3>
         <ul className='results__wrapper'>
-          <li className='results__item'>город Москва, улица Ленина 13, дом 32</li>
-          <li className='results__item'>город Москва, улица Ленина 13, дом 32</li>
+          { state.map(address => <li className='results__item'>{address.value}</li>) }
         </ul>
       </div>
       </main>
