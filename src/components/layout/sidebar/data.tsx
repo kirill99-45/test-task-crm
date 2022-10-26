@@ -1,6 +1,6 @@
 import { IconHome, IconSearch, IconTables, IconCalendar, IconMap,
   IconDevises, IconSettings, IconSettingsUser, IconFinance, IconLogout, IconArrow
-} from './icons/index.tsx';
+} from './icons/index';
 
 export interface ISidebarItem {
   title : string,

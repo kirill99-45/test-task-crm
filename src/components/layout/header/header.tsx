@@ -1,5 +1,5 @@
-import IconLogo from './logo.svg';
-import IconUser from './user.svg';
+import { IconLogo, IconUser } from './icons/index';
+
 import './header.scss';
 
 export const Header: React.FC = () => {

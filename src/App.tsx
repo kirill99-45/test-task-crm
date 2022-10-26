@@ -1,8 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import { Home } from './components/pages/home/home-page.tsx';
-import { Addresses } from './components/pages/addresses/addresses-page.tsx';
-import { Layout } from './components/layout/layout.tsx';
-import './App.css';
+import { Home } from './components/pages/home/home-page';
+import { Addresses } from './components/pages/addresses/addresses-page';
+import { Layout } from './components/layout/layout';
 
 export const App: React.FC = () => {
   return (

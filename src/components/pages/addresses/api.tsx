@@ -13,7 +13,7 @@ const config = {
   },
 }
 
-export const getAddress = async (query) => {
+export const getAddress = async (query: string) => {
   const { suggestions } = await axios.post(URL, JSON.stringify({ query }), config)
     .then(resp => resp.data)
   return suggestions

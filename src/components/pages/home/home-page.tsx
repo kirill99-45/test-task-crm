@@ -29,8 +29,6 @@ export const Home: React.FC = () => {
     }
   ]
 
-
-
   const Paragraph = ({ paragraph }) => {
     if (paragraph.links.length === 0) {
       return <p className='home__paragraph'>{paragraph.text}</p>

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { getAddress } from './api.tsx';
+import { getAddress } from './api';
 
 import './addresses.scss';
 
 export const Addresses: React.FC = () => {
 
   const [state, setState] = useState([])
-  const [inputState, setInputState] = useState('')
+  const [inputState, setInputState] = useState<string>('')
 
   const searchHandler = async () => {
     if (inputState.trim().length > 2) {
@@ -29,14 +29,14 @@ export const Addresses: React.FC = () => {
           className='input-value'
           placeholder='Введите интересующий вас адрес'
           value={inputState}
-          onChange={(event) => setInputState(event.target.value)}
+          onChange={(event: React.FormEvent<HTMLInputElement>) => setInputState(event.currentTarget.value)}
         />
-        <button className='input-button button' type='button' htmlFor='input' onClick={searchHandler}>Поиск</button>
+        <button className='input-button button' type='button' onClick={searchHandler}>Поиск</button>
       </form>
       <div className='addresses__results'>
         <h3 className='results__title'>Адреса</h3>
         <ul className='results__wrapper'>
-          { state.map(address => <li className='results__item'>{address.value}</li>) }
+          { state.map(({ value }) => <li className='results__item'>{value}</li>) }
         </ul>
       </div>
       </main>

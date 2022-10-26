@@ -3,18 +3,23 @@ import { useLocation, Link } from 'react-router-dom';
 
 import { IconHome, IconSearch, IconTables, IconCalendar, IconMap,
   IconDevises, IconSettings, IconSettingsUser, IconFinance, IconLogout, IconArrow
-} from './icons/index.tsx';
-import { Settings } from './settings.tsx';
-import { sidebar } from './data.tsx';
+} from './icons/index';
+import { Settings } from './settings';
+import { sidebar, ISidebarItem } from './data';
 
 import './sidebar.scss';
 
 export const Sidebar: React.FC = () => {
 
-  const { pathname }: string = useLocation()
-  const setActiveLink = (to) => pathname === to ? 'nav__link active' : 'nav__link'
+  const { pathname }: { pathname : string } = useLocation()
+  const setActiveLink = (to: string): string => pathname === to ? 'nav__link active' : 'nav__link'
 
-  const [settings, setSettings] = useState({
+  interface ISettings {
+    isActive : boolean,
+    icon : string,
+  }
+
+  const [settings, setSettings] = useState<ISettings>({
     isActive : false,
     icon : 'nav__arrow nav__arrow-down',
   })
@@ -31,7 +36,7 @@ export const Sidebar: React.FC = () => {
       <nav className='sidebar__nav'>
         <h3>Меню</h3>
         <ul className='nav'>
-          { sidebar.map((option, index) => {
+          { sidebar.map((option: ISidebarItem, index : number) => {
               if (option.selection) {
                 return (
                   <>
@@ -46,7 +51,7 @@ export const Sidebar: React.FC = () => {
                 <Link className={setActiveLink(option.to)} to={option.to}>
                   <img src={option.icon} className='nav__icon'/>
                   <li className='nav__item'>{option.title}</li>
-                  { option.contain && <img src={IconArrow} className='nav__arrow'/> }
+                  { option.selection && <img src={IconArrow} className='nav__arrow'/> }
                 </Link>
               )
             })}

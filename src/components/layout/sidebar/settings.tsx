@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
-import { ISidebarItem } from './data.tsx';
+import { ISidebarItem } from './data';
 import { Dispatch, SetStateAction } from 'react';
 
-interface ISettingsProps {
+interface IProps {
   selection : ISidebarItem[],
-  setActiveLink : Dispatch<SetStateAction<boolean>>
+  setActiveLink : (to : string) => string,
 }
 
-export const Settings: React.FC<ISettingsProps> = ({ selection, setActiveLink }) => {
+export const Settings: React.FC<IProps> = ({ selection, setActiveLink }) => {
 
   return (
     <div className='settings'>
